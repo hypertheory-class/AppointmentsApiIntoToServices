@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mssql
+  namespace: hypertheory
 spec:
   selector:
     matchLabels:
@@ -17,7 +18,7 @@ spec:
           resources:
             limits:
               memory: "2Gi" # REALLY important to limit Sql Server. It will, by default, take 80% of available memory at startup.
-              cpu: "500m"
+              cpu: "150m"
           ports:
             - containerPort: 1433
           env:
