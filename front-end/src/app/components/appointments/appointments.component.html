@@ -1,0 +1,15 @@
+<header>
+  <h3>Appointments</h3>
+</header>
+<ng-container *ngIf="loaded$ | async">
+  <section *ngIf="addEnabled">
+    <app-entry></app-entry>
+  </section>
+  <section>
+    <app-list [appointments]="(data$ | async) || []"></app-list>
+  </section>
+</ng-container>
+
+<div class="alert alert-info" *ngIf="(loaded$ | async) === false">
+  <h5>Your Data Isn't Loaded Yet...</h5>
+</div>

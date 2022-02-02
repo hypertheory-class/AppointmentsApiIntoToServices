@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="submit(foci)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      class="form-control"
+      formControlName="name"
+      id="name"
+      autofocus
+      #foci
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="name?.errors && (name?.touched || name?.dirty)"
+    >
+      <p>What is the name of the appointment?</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nextDate">Date</label>
+    <input
+      type="date"
+      class="form-control"
+      formControlName="nextDate"
+      id="nextDate"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="nextDate?.errors && (nextDate?.touched || nextDate?.dirty)"
+    >
+      <p>What is the date of the appointment?</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Add This Appointment</button>
+</form>

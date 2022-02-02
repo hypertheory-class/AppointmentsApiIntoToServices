@@ -1,0 +1,6 @@
+<ul class="list-unstyled">
+  <li class="alert alert-info" *ngFor="let appointment of appointments">
+    <h5>{{ appointment.name }}</h5>
+    <p>Next Occurence {{ appointment.nextDate | date: "shortDate" }}</p>
+  </li>
+</ul>
