@@ -14,6 +14,21 @@ public class AppointmentsController : ControllerBase
     }
 
 
+    [HttpPost("/appointments")]
+    public async Task<ActionResult> AddAnAppointment([FromBody] AppointCreateRequest request)
+    {
+        // validate it...
+        var appointment = new Appointment
+        {
+            Name = request.Name,
+            NextDate = request.NextDate,
+        };
+        _dataContext.Appointments!.Add(appointment);
+        await _dataContext.SaveChangesAsync();
+
+        return Ok(appointment);
+
+    }
 
     // GET ......../appointments
     [HttpGet("/appointments")]
@@ -24,4 +39,14 @@ public class AppointmentsController : ControllerBase
       
         return Ok(new { data, onCallInfo="Call Joe at 555-1212" });
     }
+
+
+}
+
+public class AppointCreateRequest
+{
+    public string Name { get; set; } = "";
+    public DateTime NextDate { get; set; }
+
+    public int Priority { get; set; }
 }

@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'https://api.hypertheory-class.com/',
   features: {
-    canAddAppointments: false,
+    canAddAppointments: true,
   },
 };
 

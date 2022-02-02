@@ -14,7 +14,7 @@ spec:
   tls:
     - hosts:
       - api.hypertheory-class.com
-      secretName: mkcert
+      secretName: tls-secret
 
   rules:
   - host: api.hypertheory-class.com
